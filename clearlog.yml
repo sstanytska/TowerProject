@@ -1,0 +1,13 @@
+---
+- name: Clear Logs 
+  ignore_errors: yes
+  hosts: all
+  tasks:
+    - name: Install gzip
+      package: 
+        name: gzip
+
+
+    - name: Zip Log file
+      shell: 'find / -size +1G   2>/dev/null   -name  "*.log" -exec gzip -v9 {} \;'
+
