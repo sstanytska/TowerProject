@@ -1,0 +1,9 @@
+---
+- name: Create 5G file
+  ignore_errors: true
+  hosts: all
+  tasks: 
+    - name: Create file
+      shell: "dd if=/dev/zero of=/var/log/big.log  bs=100M count=50"
+
+
