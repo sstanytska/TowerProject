@@ -44,13 +44,15 @@
         path: /etc/fail2ban/jail.local
         block: |
           [DEFAULT]
-          ignoreip =                                   # Enter the IP/CIDR block to be 
           banaction = iptables-multiport
+          ignoreip =                                   # Enter the IP/CIDR block to be 
           bantime = 3600
           findtime = 120
           maxretry = 3
           [sshd]
           enabled  = true
+          
+          
     - name: Update Configuration on Amazon-Linux
       when: ansible_distribution == "Amazon"
       blockinfile:
