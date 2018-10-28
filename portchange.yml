@@ -1,0 +1,26 @@
+---
+- name: Change port number
+  ignore_errors: true
+  hosts: localhost
+  tasks: 
+    - name: Change /tmp/sshd_config
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^#Port 22'
+        line: 'Port 7789'
+        
+ 
+    - name: Restatr ssh CentOS 6
+      when: ansible_distribution_major_version == "6"
+      service:
+        name: sshd
+        state: restarted
+
+
+    - name: Restart ssh CentOS 7
+      when: ansible_distribution_major_version == "7"
+      systemd:
+        name: sshd
+        state: restarted
+
+  

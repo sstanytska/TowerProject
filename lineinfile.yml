@@ -1,0 +1,12 @@
+---
+- name: Change file content
+  ignore_errors: true
+  hosts: localhost
+  tasks: 
+    - name: Change /tmp/file
+      lineinfile:
+        path: /tmp/file 
+        regexp: '^Hello'
+        line: "Hello world"
+        create: yes
+  
