@@ -6,7 +6,8 @@
     - name: Change /tmp/file
       lineinfile:
         path: /tmp/file 
-        regexp: '^Hello'
-        line: "Hello world"
+        regexp: '^line2'
+        insertbefore: '^line2'
+        line: "This is test"
         create: yes
   
