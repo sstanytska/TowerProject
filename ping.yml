@@ -1,0 +1,7 @@
+---
+- name: Ping all the system
+  hosts: all
+  ignore_errors: true
+  tasks:
+    - name: Ping
+      ping: 
