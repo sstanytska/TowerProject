@@ -8,4 +8,4 @@
         region: us-east-2
         instance_tags:
           Enviroment: Dev
-        user_data: "userdate"
+        user_data: "userdata"
